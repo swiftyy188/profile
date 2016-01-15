@@ -1,4 +1,13 @@
 <%= form_for(@project) do |f| %>
+	<%= form_for(@project) do |f| %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@project.errrors.count, "error") %> prohibited this product from saving:</h2>
+			<ul>
+				<% @project.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+			</ul>
+		</div>
+	<% end %>
 	
 	<div class='field'>
 		<%= f.label :name %><br>
